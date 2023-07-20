@@ -6,6 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Install and run backend server [https://github.com/HatemAbushaala/survey-app-backend]
 - Add some questions from admin panel before using this app
+- install dependencies using $npm install or $yarn
 
 ## Important Scripts
 

@@ -1,24 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  CircularProgress,
+  Container,
+  Stack,
+  ThemeProvider,
+  Typography,
+  createTheme,
+} from '@mui/material';
+import Question from './components/Question';
+import { useFetchRandomQuestion } from './hooks/useFetchRandomQuestion';
+
+const theme = createTheme();
 
 function App() {
+  const { fetchRandomQuestion, isLoading, question, isThereQuestions } =
+    useFetchRandomQuestion();
+
+  const render = () => {
+    if (!isThereQuestions) {
+      // user has answered all available questions
+      return (
+        <Typography color={'primary'} variant='h6'>
+          You have answered all the questions
+        </Typography>
+      );
+    } else {
+      if (isLoading || !question) {
+        return <CircularProgress />;
+      } else {
+        return (
+          <Question
+            fetchRandomQuestion={fetchRandomQuestion}
+            question={question}
+          />
+        );
+      }
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Stack height='90vh' justifyContent='center' alignItems='center'>
+          {render()}
+        </Stack>
+      </Container>
+    </ThemeProvider>
   );
 }
 

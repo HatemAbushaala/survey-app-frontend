@@ -10,7 +10,7 @@ export default function SurveyQuestion({ question, fetchRandomQuestion }) {
   const handleSubmit = async () => {
     try {
       // send request to save user answer
-      await submitAnswer(questionId, selectedChoice.text);
+      await submitAnswer(questionId, selectedChoice.text, selectedChoice.id);
       // reset selected answer
       setSelectedChoice();
       // automatically fetch another random question

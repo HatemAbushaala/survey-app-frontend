@@ -8,7 +8,7 @@ export const getRandomQuestion = async () => {
   return json;
 };
 
-export const submitAnswer = async (questionId, answer) => {
+export const submitAnswer = async (questionId, answer, answerId) => {
   const res = await fetch(`${BASE_URL}/answers`, {
     method: 'POST',
     headers: {
@@ -17,6 +17,7 @@ export const submitAnswer = async (questionId, answer) => {
     body: JSON.stringify({
       question: questionId,
       answer,
+      answerId,
       guest_id: getOrCreateGuestId(),
     }),
   });

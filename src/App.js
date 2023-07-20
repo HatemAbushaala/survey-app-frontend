@@ -6,14 +6,12 @@ import {
   Stack,
   ThemeProvider,
   Typography,
-  createTheme,
 } from '@mui/material';
 import SurveyQuestion from './components/SurveyQuestion';
 import { useFetchRandomQuestion } from './hooks/useFetchRandomQuestion';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-const theme = createTheme();
+import theme from './muiTheme';
 
 function App() {
   const { fetchRandomQuestion, isLoading, question, isThereQuestions } =

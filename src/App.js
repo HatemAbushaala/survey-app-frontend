@@ -9,6 +9,8 @@ import {
 } from '@mui/material';
 import SurveyQuestion from './components/SurveyQuestion';
 import { useFetchRandomQuestion } from './hooks/useFetchRandomQuestion';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const theme = createTheme();
 
@@ -51,6 +53,17 @@ function App() {
         <Stack height='90vh' justifyContent='center' alignItems='center'>
           {render()}
         </Stack>
+
+        <ToastContainer
+          position='bottom-center'
+          autoClose={2000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </Container>
     </ThemeProvider>
   );

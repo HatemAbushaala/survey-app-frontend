@@ -13,7 +13,7 @@ export default function SurveyQuestion({ question, fetchRandomQuestion }) {
       await submitAnswer(questionId, selectedChoice.text);
       // reset selected answer
       setSelectedChoice();
-      // notify parent component
+      // automatically fetch another random question
       fetchRandomQuestion();
     } catch (error) {
       toast.error('تعذر الاتصال بالسيرفر');

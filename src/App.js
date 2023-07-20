@@ -20,9 +20,17 @@ function App() {
     if (!isThereQuestions) {
       // user has answered all available questions
       return (
-        <Typography color={'primary'} variant='h6'>
-          You have answered all the questions
-        </Typography>
+        <>
+          <img
+            alt='congrats icon'
+            width={200}
+            height={200}
+            src='/congrats_icon.png'
+          />
+          <Typography color={'primary'} variant='h6'>
+            You have answered all the questions{' '}
+          </Typography>
+        </>
       );
     } else {
       if (isLoading || !question) {

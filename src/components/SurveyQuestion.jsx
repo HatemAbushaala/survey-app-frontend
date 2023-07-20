@@ -2,7 +2,7 @@ import { Box, Button, List, ListItemButton, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { submitAnswer } from '../lib/api';
 
-export default function Question({ question, fetchRandomQuestion }) {
+export default function SurveyQuestion({ question, fetchRandomQuestion }) {
   const { id: questionId, question: q, choices } = question;
   const [selectedChoice, setSelectedChoice] = useState();
   const submitDisabled = selectedChoice == null;

@@ -7,7 +7,7 @@ import {
   Typography,
   createTheme,
 } from '@mui/material';
-import Question from './components/Question';
+import SurveyQuestion from './components/SurveyQuestion';
 import { useFetchRandomQuestion } from './hooks/useFetchRandomQuestion';
 
 const theme = createTheme();
@@ -37,7 +37,7 @@ function App() {
         return <CircularProgress />;
       } else {
         return (
-          <Question
+          <SurveyQuestion
             fetchRandomQuestion={fetchRandomQuestion}
             question={question}
           />

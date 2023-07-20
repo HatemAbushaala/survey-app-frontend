@@ -1,3 +1,16 @@
+/* wave background */
+body::before {
+  content: '';
+  background: url('/public/wigglewave_background.png') no-repeat;
+  /* background-color: red; */
+  position: fixed;
+  background-size: cover;
+  opacity: 0.6;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .App {
   text-align: center;
 }

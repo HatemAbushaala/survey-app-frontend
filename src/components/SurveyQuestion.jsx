@@ -1,6 +1,7 @@
 import { Box, Button, List, ListItemButton, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { submitAnswer } from '../lib/api';
+import { toast } from 'react-toastify';
 
 export default function SurveyQuestion({ question, fetchRandomQuestion }) {
   const { id: questionId, question: q, choices } = question;
@@ -15,7 +16,7 @@ export default function SurveyQuestion({ question, fetchRandomQuestion }) {
       // notify parent component
       fetchRandomQuestion();
     } catch (error) {
-      console.log('fail submitting answer', error);
+      toast.error('تعذر الاتصال بالسيرفر');
     }
   };
   return (

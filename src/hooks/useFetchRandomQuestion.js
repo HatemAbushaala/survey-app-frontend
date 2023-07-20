@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getRandomQuestion } from '../lib/api';
+import { toast } from 'react-toastify';
 
 export function useFetchRandomQuestion() {
   const [question, setQuestion] = useState();
@@ -12,6 +13,9 @@ export function useFetchRandomQuestion() {
   }, []);
 
   const fetchRandomQuestion = async () => {
+    // ignore if currently trying to fetch question
+    if (isLoading) return;
+
     setIsLoading(true);
     try {
       const result = await getRandomQuestion();
@@ -22,7 +26,7 @@ export function useFetchRandomQuestion() {
         setIsThereQuestions(false);
       }
     } catch (err) {
-      // TODO handle error
+      toast.error('تعذر الاتصال بالسيرفر');
     } finally {
       setIsLoading(false);
     }

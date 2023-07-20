@@ -1,5 +1,6 @@
 import './App.css';
 import {
+  Box,
   CircularProgress,
   Container,
   Stack,
@@ -22,7 +23,7 @@ function App() {
     if (!isThereQuestions) {
       // user has answered all available questions
       return (
-        <>
+        <Stack alignItems='center' className='fade-in'>
           <img
             alt='congrats icon'
             width={200}
@@ -32,7 +33,7 @@ function App() {
           <Typography color={'primary'} variant='h6'>
             You have answered all the questions{' '}
           </Typography>
-        </>
+        </Stack>
       );
     } else {
       if (isLoading || !question) {
